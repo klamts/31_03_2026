@@ -1,0 +1,893 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Present Progressive for Future Plans 🌟</title>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&family=Baloo+2:wght@500;700;800&display=swap" rel="stylesheet">
+<style>
+:root{--bg:#fff8f0;--text:#2d2d2d;--shadow:0 8px 32px rgba(0,0,0,.10);--radius:24px;}
+*{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Nunito',sans-serif;background:var(--bg);color:var(--text);min-height:100vh;}
+
+/* ── STICKY BAR ── */
+.lang-bar{position:sticky;top:0;z-index:200;background:rgba(255,255,255,.95);backdrop-filter:blur(12px);
+  border-bottom:2px solid #f0e0d0;padding:10px 20px;display:flex;align-items:center;
+  justify-content:space-between;flex-wrap:wrap;gap:8px;}
+.lang-bar .brand{font-family:'Baloo 2',cursive;font-size:1rem;font-weight:800;color:#ff6b35;}
+.lang-toggle{display:flex;gap:4px;background:#f5ece6;border-radius:99px;padding:4px;}
+.lang-toggle button{border:none;border-radius:99px;padding:6px 15px;
+  font-family:'Nunito',sans-serif;font-size:.84rem;font-weight:800;cursor:pointer;
+  transition:all .2s;background:transparent;color:#999;}
+.lang-toggle button.active{background:#ff6b35;color:#fff;box-shadow:0 2px 8px rgba(255,107,53,.35);}
+body.lang-en .vn{display:none!important;}
+
+/* ── HERO ── */
+.hero{background:linear-gradient(135deg,#ff6b35 0%,#f7c59f 40%,#4fc3f7 100%);
+  padding:52px 24px 40px;text-align:center;position:relative;overflow:hidden;}
+.hero::before{content:'🌟';font-size:200px;position:absolute;top:-60px;right:-40px;
+  opacity:.10;animation:spin 20s linear infinite;}
+@keyframes spin{to{transform:rotate(360deg)}}
+.hero-badge{display:inline-block;background:rgba(255,255,255,.3);backdrop-filter:blur(8px);
+  border:2px solid rgba(255,255,255,.5);border-radius:99px;padding:6px 20px;
+  font-size:13px;font-weight:700;color:#fff;letter-spacing:1px;margin-bottom:18px;text-transform:uppercase;}
+.hero h1{font-family:'Baloo 2',cursive;font-size:clamp(2rem,6vw,3.4rem);font-weight:800;
+  color:#fff;line-height:1.15;text-shadow:0 2px 16px rgba(0,0,0,.12);}
+.hero h1 span{color:#fff176;}
+.hero-sub{margin-top:12px;font-size:1.1rem;color:rgba(255,255,255,.9);font-weight:600;}
+.formula-box{margin:28px auto 0;max-width:520px;background:rgba(255,255,255,.22);
+  backdrop-filter:blur(10px);border:2px solid rgba(255,255,255,.4);border-radius:18px;
+  padding:16px 28px;font-family:'Baloo 2',cursive;font-size:1.2rem;font-weight:700;color:#fff;}
+.formula-box span{color:#fff176;}
+
+/* ── NOTE BOXES ── */
+.note-wrap{max-width:900px;margin:0 auto;padding:0 18px;}
+.note-wrap + .note-wrap{margin-top:18px;}
+
+.grammar-card{background:linear-gradient(120deg,#e3f2fd,#f3e5f5);border-radius:var(--radius);
+  padding:28px 32px;border-left:6px solid #2196f3;box-shadow:var(--shadow);animation:fadeUp .7s ease both;}
+.grammar-card h2{font-family:'Baloo 2',cursive;font-size:1.3rem;color:#1565c0;margin-bottom:10px;}
+.grammar-card p{font-size:1rem;line-height:1.75;color:#444;}
+.grammar-card strong{color:#6a1b9a;}
+
+/* TIME EXPRESSION TABLE */
+.time-card{background:linear-gradient(120deg,#fff8e1,#f3e5f5);border-radius:var(--radius);
+  padding:26px 28px;border-left:6px solid #f9a825;box-shadow:var(--shadow);animation:fadeUp .75s ease both;}
+.time-card h2{font-family:'Baloo 2',cursive;font-size:1.25rem;color:#e65100;margin-bottom:16px;}
+.time-table{width:100%;border-collapse:separate;border-spacing:0;font-size:.93rem;}
+.time-table thead th{background:linear-gradient(90deg,#ff6b35,#ffab40);color:#fff;
+  padding:10px 14px;text-align:left;font-weight:800;letter-spacing:.4px;}
+.time-table thead th:first-child{border-radius:10px 0 0 0;}
+.time-table thead th:last-child{border-radius:0 10px 0 0;}
+.time-table tbody tr:nth-child(odd){background:#fffaf5;}
+.time-table tbody tr:nth-child(even){background:#fff3e0;}
+.time-table tbody tr:hover{background:#ffe0b2;}
+.time-table td{padding:10px 14px;vertical-align:top;line-height:1.55;border-bottom:1px solid #f5dfc8;}
+.time-table td:first-child{font-weight:800;color:#c94b00;white-space:nowrap;}
+.time-table td .expr{display:inline-block;background:#fff3e0;border:1.5px solid #ffab40;
+  border-radius:8px;padding:2px 9px;font-family:'Baloo 2',cursive;font-size:.9rem;
+  font-weight:700;color:#e65100;margin:2px 2px 2px 0;}
+.time-table td .vn-note{display:block;color:#888;font-size:.8rem;margin-top:3px;font-style:italic;}
+.time-table td .ex{display:block;margin-top:5px;color:#555;font-size:.88rem;
+  background:#fff;border-radius:8px;padding:5px 9px;border-left:3px solid #ffab40;}
+.time-highlight{background:linear-gradient(90deg,#fff9c4,#fff3e0);border-radius:10px;
+  padding:12px 16px;margin-top:14px;font-size:.9rem;color:#555;line-height:1.7;border-left:4px solid #f9a825;}
+.time-highlight strong{color:#e65100;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(32px)}to{opacity:1;transform:translateY(0)}}
+
+/* ── SECTION HEADER ── */
+.section-header{text-align:center;padding:44px 18px 6px;}
+.section-header .emoji{font-size:2.4rem;}
+.section-header h2{font-family:'Baloo 2',cursive;font-size:clamp(1.4rem,4vw,2rem);font-weight:800;margin-top:6px;}
+.section-header .tag{display:inline-block;margin-top:8px;color:#fff;border-radius:99px;font-size:.85rem;font-weight:700;padding:5px 18px;}
+.tag-orange{background:#ff6b35;}
+.tag-teal{background:#00897b;}
+.tag-purple{background:#8e24aa;}
+.tag-pink{background:#e91e63;}
+.tag-blue{background:#1565c0;}
+.tag-green{background:#2e7d32;}
+
+/* ── QA CARDS ── */
+.cards-grid{max-width:980px;margin:0 auto;padding:24px 18px 36px;
+  display:grid;grid-template-columns:repeat(auto-fit,minmax(290px,1fr));gap:26px;}
+.qa-card{background:#fff;border-radius:var(--radius);overflow:hidden;
+  box-shadow:var(--shadow);transition:transform .25s,box-shadow .25s;animation:fadeUp .6s ease both;}
+.qa-card:hover{transform:translateY(-6px) scale(1.01);box-shadow:0 16px 48px rgba(0,0,0,.14);}
+.qa-card:nth-child(1){animation-delay:.05s}.qa-card:nth-child(2){animation-delay:.12s}
+.qa-card:nth-child(3){animation-delay:.19s}.qa-card:nth-child(4){animation-delay:.26s}
+
+.card-img-wrap{width:100%;height:175px;overflow:hidden;position:relative;}
+.card-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .4s;}
+.qa-card:hover .card-img-wrap img{transform:scale(1.07);}
+.img-badge{position:absolute;top:10px;left:10px;background:rgba(0,0,0,.55);color:#fff;
+  border-radius:9px;padding:3px 10px;font-size:.76rem;font-weight:700;backdrop-filter:blur(4px);}
+.time-badge{position:absolute;bottom:10px;right:10px;border-radius:9px;padding:3px 10px;
+  font-size:.76rem;font-weight:800;backdrop-filter:blur(4px);}
+.tb-end{background:#ff6b35;color:#fff;}
+.tb-beg{background:#00897b;color:#fff;}
+.tb-mid{background:#8e24aa;color:#fff;}
+
+.card-body{padding:20px 20px 18px;}
+.card-number{display:inline-flex;align-items:center;justify-content:center;
+  width:32px;height:32px;border-radius:50%;font-weight:900;font-size:1rem;margin-bottom:10px;}
+.n1{background:#ff6b35;color:#fff}.n2{background:#00897b;color:#fff}
+.n3{background:#8e24aa;color:#fff}.n4{background:#e91e63;color:#fff}
+.n5{background:#1565c0;color:#fff}.n6{background:#2e7d32;color:#fff}
+
+.question-text{font-family:'Baloo 2',cursive;font-size:1.02rem;font-weight:700;
+  color:#333;margin-bottom:12px;line-height:1.5;}
+.hi-orange{color:#ff6b35;}.hi-teal{color:#00897b;}.hi-purple{color:#8e24aa;}
+.hi-pink{color:#e91e63;}.hi-blue{color:#1565c0;}.hi-green{color:#2e7d32;}
+
+/* time expression chip inside question */
+.time-chip{display:inline-block;padding:2px 10px;border-radius:8px;font-size:.82rem;
+  font-weight:800;font-family:'Baloo 2',cursive;vertical-align:middle;margin-left:3px;}
+.chip-end{background:#fff3e0;color:#e65100;border:1.5px solid #ffab40;}
+.chip-beg{background:#e0f2f1;color:#00695c;border:1.5px solid #4db6ac;}
+.chip-mid{background:#f3e5f5;color:#6a1b9a;border:1.5px solid #ce93d8;}
+
+.audio-btn{display:inline-flex;align-items:center;gap:7px;border:none;border-radius:99px;
+  padding:8px 18px;font-family:'Nunito',sans-serif;font-size:.88rem;font-weight:800;cursor:pointer;
+  transition:transform .15s;box-shadow:0 4px 12px rgba(0,0,0,.12);margin-bottom:12px;}
+.audio-btn:hover{transform:scale(1.05)}.audio-btn:active{transform:scale(.97)}
+.audio-btn .icon{font-size:1.1rem;}
+.audio-btn.playing .icon,.ans-audio-btn.playing .abicon,.vocab-audio-btn.playing .abicon
+  {animation:pulse .6s infinite alternate;display:inline-block;}
+@keyframes pulse{to{transform:scale(1.35)}}
+.ab1{background:linear-gradient(90deg,#ff6b35,#ffab40);color:#fff}
+.ab2{background:linear-gradient(90deg,#00897b,#4db6ac);color:#fff}
+.ab3{background:linear-gradient(90deg,#8e24aa,#e040fb);color:#fff}
+.ab4{background:linear-gradient(90deg,#c2185b,#f48fb1);color:#fff}
+.ab5{background:linear-gradient(90deg,#1565c0,#40c4ff);color:#fff}
+.ab6{background:linear-gradient(90deg,#2e7d32,#69f0ae);color:#fff}
+
+.answers-label{font-size:.77rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;color:#aaa;margin-bottom:8px;}
+.answer-list{list-style:none;padding:0;}
+.answer-list li{background:#f9f9f9;border-radius:12px;padding:10px 14px;margin-bottom:8px;
+  font-size:.93rem;line-height:1.5;border-left:4px solid transparent;transition:background .2s;}
+.answer-list li:hover{background:#f0f0ff;}
+.a1 li{border-left-color:#ff6b35}.a2 li{border-left-color:#00897b}
+.a3 li{border-left-color:#8e24aa}.a4 li{border-left-color:#e91e63}
+.a5 li{border-left-color:#1565c0}.a6 li{border-left-color:#2e7d32}
+.answer-list li .label{display:inline-block;border-radius:6px;font-size:.71rem;
+  font-weight:700;padding:1px 7px;margin-bottom:3px;color:#666;background:#eee;}
+.a1 li .label{background:#ffe0cc;color:#c94b00}.a2 li .label{background:#e0f2f1;color:#00695c}
+.a3 li .label{background:#f3e5f5;color:#6a1b9a}.a4 li .label{background:#fce4ec;color:#880e4f}
+.a5 li .label{background:#e3f2fd;color:#1565c0}.a6 li .label{background:#e8f5e9;color:#1b5e20}
+.vi-ans{color:#777;font-size:.81rem;margin-top:3px;}
+
+.ans-audio-row{display:flex;gap:7px;flex-wrap:wrap;margin-top:8px;}
+.ans-audio-btn{display:inline-flex;align-items:center;gap:5px;border:none;border-radius:99px;
+  padding:5px 12px;font-family:'Nunito',sans-serif;font-size:.79rem;font-weight:800;cursor:pointer;
+  box-shadow:0 2px 8px rgba(0,0,0,.09);transition:transform .15s;color:#fff;}
+.ans-audio-btn:hover{transform:scale(1.06)}
+.aab1{background:linear-gradient(90deg,#ff8a50,#ffd180)}
+.aab2{background:linear-gradient(90deg,#26a69a,#80cbc4)}
+.aab3{background:linear-gradient(90deg,#ab47bc,#ea80fc)}
+.aab4{background:linear-gradient(90deg,#e91e63,#f48fb1)}
+.aab5{background:linear-gradient(90deg,#1e88e5,#40c4ff)}
+.aab6{background:linear-gradient(90deg,#43a047,#b2ff59);color:#1b5e20}
+
+.notice{background:#e3f2fd;border-radius:10px;padding:8px 12px;font-size:.79rem;color:#1565c0;margin-top:8px;font-weight:600;}
+
+/* ── TIP ── */
+.tip-section{max-width:900px;margin:0 auto 36px;padding:0 18px;}
+.tip-card{background:linear-gradient(120deg,#fff9c4,#fffde7);border-radius:var(--radius);
+  padding:26px 30px;border-left:6px solid #f9a825;box-shadow:var(--shadow);}
+.tip-card h3{font-family:'Baloo 2',cursive;font-size:1.15rem;color:#e65100;margin-bottom:12px;}
+.tip-list{list-style:none;}
+.tip-list li{padding:6px 0;font-size:.96rem;line-height:1.65;color:#555;display:flex;gap:8px;}
+.tip-list li::before{content:'✅';flex-shrink:0;}
+
+/* ── VOCAB ── */
+.vocab-section-header{text-align:center;padding:48px 0 22px;}
+.vocab-section-header h2{font-family:'Baloo 2',cursive;font-size:clamp(1.5rem,4vw,2.2rem);font-weight:800;color:#333;}
+.vocab-section-header p{color:#777;font-size:.96rem;margin-top:6px;}
+.vocab-section-header .vtag{display:inline-block;margin-top:10px;
+  background:linear-gradient(90deg,#ff6b35,#9c27b0);color:#fff;border-radius:99px;font-size:.84rem;font-weight:700;padding:5px 20px;}
+.vocab-section-wrap{max-width:1100px;margin:0 auto;padding:0 18px 56px;}
+.vocab-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(290px,1fr));gap:22px;}
+.vocab-card{background:#fff;border-radius:20px;overflow:hidden;box-shadow:var(--shadow);
+  transition:transform .22s,box-shadow .22s;animation:fadeUp .6s ease both;}
+.vocab-card:hover{transform:translateY(-5px);box-shadow:0 18px 48px rgba(0,0,0,.13);}
+.vocab-img-wrap{width:100%;height:146px;overflow:hidden;position:relative;}
+.vocab-img-wrap img{width:100%;height:100%;object-fit:cover;transition:transform .35s;}
+.vocab-card:hover .vocab-img-wrap img{transform:scale(1.08);}
+.vocab-img-num{position:absolute;bottom:8px;right:10px;background:rgba(0,0,0,.5);color:#fff;
+  border-radius:8px;padding:2px 8px;font-size:.71rem;font-weight:700;backdrop-filter:blur(4px);}
+.vocab-body{padding:15px 16px 13px;}
+.vocab-top{display:flex;align-items:flex-start;gap:11px;margin-bottom:9px;}
+.vocab-num-badge{width:34px;height:34px;border-radius:50%;display:flex;align-items:center;
+  justify-content:center;font-weight:900;font-size:.9rem;flex-shrink:0;color:#fff;
+  background:linear-gradient(135deg,#ff6b35,#9c27b0);}
+.vocab-word-block{flex:1;}
+.vocab-word{font-family:'Baloo 2',cursive;font-size:1.28rem;font-weight:800;color:#222;line-height:1.1;}
+.vocab-type{display:inline-block;margin-top:2px;font-size:.69rem;font-weight:700;
+  padding:2px 8px;border-radius:6px;letter-spacing:.5px;text-transform:uppercase;}
+.vt-verb{background:#ffe0b2;color:#e65100}.vt-noun{background:#e3f2fd;color:#1565c0}
+.vt-adj{background:#f3e5f5;color:#6a1b9a}.vt-phrase{background:#e8f5e9;color:#2e7d32}
+.vocab-ipa{font-size:.86rem;color:#888;margin-top:2px;font-style:italic;}
+.vocab-meaning{font-size:.97rem;font-weight:700;color:#333;margin-bottom:7px;}
+.vocab-meaning .vi-meaning{color:#e65100;}
+.vocab-example{background:#f8f4ff;border-left:3px solid #9c27b0;border-radius:0 10px 10px 0;
+  padding:8px 12px;font-size:.89rem;color:#444;line-height:1.5;margin-bottom:10px;}
+.vocab-example .vi-ex{color:#888;font-size:.81rem;font-style:italic;}
+.vocab-audio-btn{display:inline-flex;align-items:center;gap:6px;border:none;border-radius:99px;
+  padding:7px 16px;font-family:'Nunito',sans-serif;font-size:.82rem;font-weight:800;cursor:pointer;
+  background:linear-gradient(90deg,#ff6b35,#ffab40);color:#fff;
+  box-shadow:0 3px 10px rgba(255,107,53,.3);transition:transform .15s;}
+.vocab-audio-btn:hover{transform:scale(1.06);}
+
+footer{text-align:center;padding:28px 18px 36px;color:#bbb;font-size:.87rem;font-weight:700;letter-spacing:.5px;}
+
+/* divider */
+.section-divider{height:2px;background:linear-gradient(90deg,transparent,#ffab40,transparent);
+  max-width:600px;margin:8px auto 0;border-radius:2px;}
+</style>
+</head>
+<body class="lang-vi">
+
+<!-- LANG BAR -->
+<div class="lang-bar">
+  <div class="brand">🌟 Present Progressive for Future Plans</div>
+  <div style="display:flex;align-items:center;gap:10px;flex-wrap:wrap;">
+    <span style="font-size:0.83rem;font-weight:700;color:#999;">🌐 Tiếng Việt:</span>
+    <div class="lang-toggle">
+      <button id="btn-vi" class="active" onclick="setLang('vi')">🇻🇳 Bật tiếng Việt</button>
+      <button id="btn-en" onclick="setLang('en')">🇬🇧 Chỉ tiếng Anh</button>
+    </div>
+  </div>
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div class="hero-badge">🎓 English Grammar Practice</div>
+  <h1>Present Progressive<br><span>for Future Plans</span> 🗓️</h1>
+  <p class="hero-sub">Chủ đề: <strong>Preparing for Reunion &amp; Birthday</strong> 🎉</p>
+  <div class="formula-box">📌 Công thức: <span>S + am / is / are + V-ing</span> + thời gian tương lai</div>
+</div>
+
+<!-- GRAMMAR NOTE -->
+<div class="grammar-note">
+  <div class="grammar-card">
+    <h2>💡 Khi nào dùng Present Progressive cho tương lai?</h2>
+    <p>
+      Ta dùng <strong>Present Progressive (S + am/is/are + V-ing)</strong> để nói về những
+      <strong>kế hoạch đã được sắp xếp cụ thể</strong> trong tương lai —
+      thường kèm thời gian như <em>next week, on Saturday, at the end of April…</em><br>
+      Ví dụ: <strong>"I am visiting my grandma next Sunday."</strong>
+      <span class="vn"> → Tôi sẽ đến thăm bà ngoại vào Chủ Nhật tới. (Kế hoạch đã được xếp!)</span>
+    </p>
+  </div>
+</div>
+<!-- GRAMMAR NOTE 2 – TIME EXPRESSIONS -->
+<div class="note-wrap" style="margin-top:18px;margin-bottom:36px;">
+  <div class="time-card">
+    <h2>📅 Cách nói "đầu tháng · giữa tháng · cuối tháng" trong tiếng Anh</h2>
+    <table class="time-table">
+      <thead>
+        <tr>
+          <th>Thời điểm</th>
+          <th>Cụm từ tiếng Anh</th>
+          <th>Ví dụ trong câu</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td>🟢 Đầu tháng<br><span class="vn-note">khoảng ngày 1–10</span></td>
+          <td>
+            <span class="expr">at the beginning of + tháng</span>
+            <span class="expr">in early + tháng</span>
+            <span class="vn-note">"beginning" = bắt đầu · "early" = sớm, đầu</span>
+          </td>
+          <td>
+            <span class="ex"><strong>I'm travelling</strong> at the beginning of May.<br>
+            <span class="vn">→ Tôi sẽ đi du lịch vào đầu tháng 5.</span></span>
+            <span class="ex"><strong>She's starting</strong> her new job in early June.<br>
+            <span class="vn">→ Cô ấy bắt đầu công việc mới đầu tháng 6.</span></span>
+          </td>
+        </tr>
+        <tr>
+          <td>🟡 Giữa tháng<br><span class="vn-note">khoảng ngày 10–20</span></td>
+          <td>
+            <span class="expr">in the middle of + tháng</span>
+            <span class="expr">in mid-+ tháng</span>
+            <span class="vn-note">"middle" = giữa · "mid-" = tiền tố giữa</span>
+          </td>
+          <td>
+            <span class="ex"><strong>We're meeting</strong> in the middle of July.<br>
+            <span class="vn">→ Chúng tôi sẽ gặp nhau vào giữa tháng 7.</span></span>
+            <span class="ex"><strong>They're moving</strong> in mid-August.<br>
+            <span class="vn">→ Họ sẽ chuyển nhà vào giữa tháng 8.</span></span>
+          </td>
+        </tr>
+        <tr>
+          <td>🔴 Cuối tháng<br><span class="vn-note">khoảng ngày 20–31</span></td>
+          <td>
+            <span class="expr">at the end of + tháng</span>
+            <span class="expr">in late + tháng</span>
+            <span class="vn-note">"end" = kết thúc · "late" = muộn, cuối</span>
+          </td>
+          <td>
+            <span class="ex"><strong>I'm having</strong> a family reunion at the end of April.<br>
+            <span class="vn">→ Tôi sẽ họp mặt gia đình vào cuối tháng 4.</span></span>
+            <span class="ex"><strong>He's flying</strong> to Hanoi in late September.<br>
+            <span class="vn">→ Anh ấy sẽ bay ra Hà Nội vào cuối tháng 9.</span></span>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+    <div class="time-highlight">
+      💡 <strong>Mẹo nhớ nhanh:</strong>
+      &nbsp;<span style="color:#00897b;font-weight:800;">beginning / early</span> → 🟢 đầu tháng &nbsp;|&nbsp;
+      <span style="color:#f9a825;font-weight:800;">middle / mid-</span> → 🟡 giữa tháng &nbsp;|&nbsp;
+      <span style="color:#e65100;font-weight:800;">end / late</span> → 🔴 cuối tháng
+      <br><span class="vn">✏️ Chú ý: <strong>"at the beginning of"</strong> và <strong>"at the end of"</strong> dùng giới từ <em>at</em>, còn <strong>"in the middle of"</strong>, <strong>"in early…"</strong>, <strong>"in late…"</strong> dùng giới từ <em>in</em>.</span>
+    </div>
+  </div>
+</div>
+
+<!-- SECTION 1 -->
+<div class="section-header">
+  <div class="emoji">🏡</div>
+  <h2>Câu hỏi về Họp mặt Gia đình</h2>
+  <span class="tag">Family Reunion – End of April</span>
+</div>
+<div class="cards-grid">
+
+  <div class="qa-card">
+    <div class="card-img-wrap">
+      <img src="1.jpg" alt="Family reunion" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:180px;background:linear-gradient(135deg,#ff8a65,#ffcc80);display:flex;align-items:center;justify-content:center;font-size:4rem;\'>🏡</div>'">
+      <div class="img-badge">📷 1.jpg</div>
+    </div>
+    <div class="card-body">
+      <div class="card-number n1">1</div>
+      <div class="question-text">
+        ❓ <span class="hi">What are you preparing for</span> the family reunion at the end of April?
+        <div class="vn"><em style="font-size:0.85rem;color:#888;">(Bạn đang chuẩn bị gì cho buổi họp mặt gia đình cuối tháng 4?)</em></div>
+      </div>
+      <button class="audio-btn ab1" onclick="playAudio('1.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <button class="audio-btn ab1" onclick="playAudio('1_1.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <button class="audio-btn ab1" onclick="playAudio('1_2.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <div class="answers-label">💬 Các cách trả lời:</div>
+      <ul class="answer-list a1">
+        <li><div class="label">😊 Thân thiện</div> <strong>I'm preparing</strong> a big pot of beef stew and some spring rolls for everyone! <div class="vi-ans vn">→ Tôi đang nấu nồi bò hầm và chả giò cho mọi người!</div></li>
+        <li><div class="label">📋 Chi tiết</div> <strong>I'm booking</strong> a garden venue and <strong>I'm arranging</strong> decorations and games for the kids. <div class="vi-ans vn">→ Tôi đang đặt chỗ ngoài trời và chuẩn bị trang trí, trò chơi cho bé.</div></li>
+        <li><div class="label">🎵 Vui vẻ</div> <strong>I'm putting together</strong> a slideshow of old family photos — it's going to be so fun! <div class="vi-ans vn">→ Tôi đang làm slideshow ảnh gia đình xưa — vui lắm đó!</div></li>
+        <li><div class="label">👨‍👩‍👧 Cùng nhau</div> <strong>We're cooking</strong> together on Saturday. My mom <strong>is making</strong> her special soup! <div class="vi-ans vn">→ Cả nhà nấu cùng thứ Bảy. Mẹ tôi đang nấu canh đặc biệt!</div></li>
+      </ul>
+      <div class="ans-audio-row">
+        <button class="ans-audio-btn aab1" onclick="playAudio('2.wav',this)"><span class="abicon">🔊</span> Đáp 1</button>
+        <button class="ans-audio-btn aab1" onclick="playAudio('3.wav',this)"><span class="abicon">🔊</span> Đáp 2</button>
+        <button class="ans-audio-btn aab1" onclick="playAudio('4.wav',this)"><span class="abicon">🔊</span> Đáp 3</button>
+        <button class="ans-audio-btn aab1" onclick="playAudio('5.wav',this)"><span class="abicon">🔊</span> Đáp 4</button>
+      </div>
+      <div class="notice">⚠️ Đặt <b>1.wav</b>, <b>2.wav–5.wav</b> cùng thư mục để nghe audio.</div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="card-img-wrap">
+      <img src="2.jpg" alt="Reunion special" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:180px;background:linear-gradient(135deg,#66bb6a,#b2ff59);display:flex;align-items:center;justify-content:center;font-size:4rem;\'>👨‍👩‍👦‍👦</div>'">
+      <div class="img-badge">📷 2.jpg</div>
+    </div>
+    <div class="card-body">
+      <div class="card-number n2">2</div>
+      <div class="question-text">
+        ❓ <span class="hi" style="color:#4caf50">Are you preparing anything special</span> for the reunion?
+        <div class="vn"><em style="font-size:0.85rem;color:#888;">(Bạn có chuẩn bị gì đặc biệt cho buổi họp mặt không?)</em></div>
+      </div>
+      <button class="audio-btn ab2" onclick="playAudio('6.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <div class="answers-label">💬 Các cách trả lời:</div>
+      <ul class="answer-list a2">
+        <li><div class="label">✅ Khẳng định</div> Yes! <strong>I'm preparing</strong> a karaoke playlist and <strong>I'm buying</strong> matching T-shirts for everyone. <div class="vi-ans vn">→ Có! Tôi đang chuẩn bị danh sách karaoke và mua áo đồng phục.</div></li>
+        <li><div class="label">🤝 Phân công</div> <strong>I'm handling</strong> the food while my brother <strong>is setting up</strong> the sound system. <div class="vi-ans vn">→ Tôi lo phần thức ăn còn anh lắp dàn âm thanh.</div></li>
+        <li><div class="label">😅 Khiêm tốn</div> Not much, but <strong>I'm preparing</strong> a short speech to welcome everyone! <div class="vi-ans vn">→ Không nhiều, nhưng tôi đang soạn bài phát biểu chào đón mọi người!</div></li>
+        <li><div class="label">🎁 Bất ngờ</div> Shhh! <strong>I'm putting together</strong> a surprise gift for grandpa — don't tell anyone! 🎁 <div class="vi-ans vn">→ Suỵt! Tôi đang chuẩn bị quà bí mật cho ông — đừng nói ai nhé!</div></li>
+      </ul>
+      <div class="ans-audio-row">
+        <button class="ans-audio-btn aab2" onclick="playAudio('7.wav',this)"><span class="abicon">🔊</span> Đáp 1</button>
+        <button class="ans-audio-btn aab2" onclick="playAudio('8.wav',this)"><span class="abicon">🔊</span> Đáp 2</button>
+        <button class="ans-audio-btn aab2" onclick="playAudio('9.wav',this)"><span class="abicon">🔊</span> Đáp 3</button>
+        <button class="ans-audio-btn aab2" onclick="playAudio('10.wav',this)"><span class="abicon">🔊</span> Đáp 4</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- SECTION 2 -->
+<div class="section-header">
+  <div class="emoji">🎂</div>
+  <h2>Câu hỏi về Sinh nhật Bà Ngoại</h2>
+  <span class="tag" style="background:#9c27b0">Grandma's Birthday – Next Week</span>
+</div>
+<div class="cards-grid">
+
+  <div class="qa-card">
+    <div class="card-img-wrap">
+      <img src="3.jpg" alt="Grandma birthday" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:180px;background:linear-gradient(135deg,#42a5f5,#80d8ff);display:flex;align-items:center;justify-content:center;font-size:4rem;\'>🎂</div>'">
+      <div class="img-badge">📷 3.jpg</div>
+    </div>
+    <div class="card-body">
+      <div class="card-number n3">3</div>
+      <div class="question-text">
+        ❓ <span class="hi" style="color:#2196f3">What are you preparing for</span> grandma's birthday next week?
+        <div class="vn"><em style="font-size:0.85rem;color:#888;">(Bạn đang chuẩn bị gì cho sinh nhật bà ngoại tuần tới?)</em></div>
+      </div>
+      <button class="audio-btn ab3" onclick="playAudio('11.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <div class="answers-label">💬 Các cách trả lời:</div>
+      <ul class="answer-list a3">
+        <li><div class="label">💝 Ấm áp</div> <strong>I'm baking</strong> her favourite vanilla cake and <strong>I'm decorating</strong> the house with flowers. <div class="vi-ans vn">→ Tôi đang nướng bánh vanilla bà thích và trang trí nhà bằng hoa.</div></li>
+        <li><div class="label">🎁 Quà cáp</div> <strong>I'm buying</strong> her a new shawl and <strong>I'm writing</strong> a heartfelt card for her. <div class="vi-ans vn">→ Tôi đang mua khăn choàng mới và viết thiệp tình cảm cho bà.</div></li>
+        <li><div class="label">👨‍👩‍👧 Gia đình</div> <strong>We're planning</strong> a surprise dinner! The whole family <strong>is coming</strong> on Saturday evening. <div class="vi-ans vn">→ Cả nhà đang lên kế hoạch bữa tối bí mật! Tối thứ Bảy cả nhà sẽ đến.</div></li>
+        <li><div class="label">📸 Kỷ niệm</div> <strong>I'm making</strong> a photo album of our best memories together — 80 pages! 📸 <div class="vi-ans vn">→ Tôi đang làm album ảnh kỷ niệm hai bà cháu — 80 trang!</div></li>
+      </ul>
+      <div class="ans-audio-row">
+        <button class="ans-audio-btn aab3" onclick="playAudio('12.wav',this)"><span class="abicon">🔊</span> Đáp 1</button>
+        <button class="ans-audio-btn aab3" onclick="playAudio('13.wav',this)"><span class="abicon">🔊</span> Đáp 2</button>
+        <button class="ans-audio-btn aab3" onclick="playAudio('14.wav',this)"><span class="abicon">🔊</span> Đáp 3</button>
+        <button class="ans-audio-btn aab3" onclick="playAudio('15.wav',this)"><span class="abicon">🔊</span> Đáp 4</button>
+      </div>
+    </div>
+  </div>
+
+  <div class="qa-card">
+    <div class="card-img-wrap">
+      <img src="4.jpg" alt="Grandma birthday celebration" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:180px;background:linear-gradient(135deg,#ab47bc,#ea80fc);display:flex;align-items:center;justify-content:center;font-size:4rem;\'>👵🎉</div>'">
+      <div class="img-badge">📷 4.jpg</div>
+    </div>
+    <div class="card-body">
+      <div class="card-number n4">4</div>
+      <div class="question-text">
+        ❓ <span class="hi" style="color:#9c27b0">How are you celebrating</span> grandma's birthday next week?
+        <div class="vn"><em style="font-size:0.85rem;color:#888;">(Bạn sẽ tổ chức sinh nhật bà ngoại như thế nào tuần tới?)</em></div>
+      </div>
+      <button class="audio-btn ab4" onclick="playAudio('16.wav',this)"><span class="icon">🔊</span> Nghe câu hỏi</button>
+      <div class="answers-label">💬 Các cách trả lời:</div>
+      <ul class="answer-list a4">
+        <li><div class="label">🎶 Đặc biệt</div> <strong>We're hiring</strong> a small band and <strong>we're setting up</strong> a beautiful garden party for her! <div class="vi-ans vn">→ Chúng tôi đang thuê ban nhạc và tổ chức tiệc ngoài vườn cho bà!</div></li>
+        <li><div class="label">🍜 Đơn giản</div> Just a cozy family meal. <strong>I'm cooking</strong> all her favourite dishes myself. <div class="vi-ans vn">→ Chỉ bữa cơm ấm cúng. Tôi tự nấu tất cả món bà thích.</div></li>
+        <li><div class="label">🎬 Sáng tạo</div> <strong>I'm recording</strong> video messages from relatives abroad and <strong>I'm editing</strong> them into a film! 🎬 <div class="vi-ans vn">→ Tôi đang quay video từ họ hàng nước ngoài và ghép thành phim!</div></li>
+        <li><div class="label">🌸 Tâm lý</div> <strong>I'm taking</strong> her to her favourite pagoda in the morning, then <strong>we're having</strong> lunch at a nice restaurant. <div class="vi-ans vn">→ Sáng tôi đưa bà đến chùa, rồi ăn trưa ở nhà hàng đẹp.</div></li>
+      </ul>
+      <div class="ans-audio-row">
+        <button class="ans-audio-btn aab4" onclick="playAudio('17.wav',this)"><span class="abicon">🔊</span> Đáp 1</button>
+        <button class="ans-audio-btn aab4" onclick="playAudio('18.wav',this)"><span class="abicon">🔊</span> Đáp 2</button>
+        <button class="ans-audio-btn aab4" onclick="playAudio('19.wav',this)"><span class="abicon">🔊</span> Đáp 3</button>
+        <button class="ans-audio-btn aab4" onclick="playAudio('20.wav',this)"><span class="abicon">🔊</span> Đáp 4</button>
+      </div>
+    </div>
+  </div>
+
+</div>
+
+<!-- TIPS -->
+<div class="tip-section">
+  <div class="tip-card">
+    <h3>💡 Mẹo nhỏ để dùng đúng Present Progressive cho tương lai</h3>
+    <ul class="tip-list">
+      <li>Luôn thêm <strong>thời gian tương lai</strong> rõ ràng: <em>next week, on Saturday, at the end of April…</em></li>
+      <li>Dùng khi kế hoạch <strong>đã được xếp lịch cụ thể</strong>, không phải ý định mơ hồ.</li>
+      <li>Có thể dùng <strong>nhiều mệnh đề Present Progressive</strong> cùng lúc để liệt kê kế hoạch.</li>
+      <li>Chủ ngữ số nhiều (We/They) → <strong>are + V-ing</strong>; số ít (I) → <strong>am + V-ing</strong>.</li>
+      <li><strong>What are you preparing? / How are you celebrating?</strong> — đều dùng cấu trúc này!</li>
+    </ul>
+  </div>
+</div>
+
+<!-- ===== VOCAB GLOSSARY ===== -->
+<div class="vocab-section-header">
+  <div style="font-size:2.2rem">📖</div>
+  <h2>Ghi Chú Từ Vựng — Vocabulary Notes</h2>
+  <p>Các động từ quan trọng trong bài · Phiên âm IPA · Nghĩa · Câu ví dụ trình độ A1</p>
+  <span class="vtag">📁 Hình: part4/1.jpg … · Audio: part4/1.wav …</span>
+</div>
+
+<div class="vocab-section-wrap">
+<div class="vocab-grid">
+
+<!-- helper macro pattern repeated for each word -->
+
+<!-- 1 prepare -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/1.jpg" alt="prepare" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ff8a50,#ffd180);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🍱</div>'">
+    <div class="vocab-img-num">part4/1.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">1</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">prepare</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /prɪˈpeər/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">chuẩn bị</span></div>
+    <div class="vocab-example">I <strong>prepare</strong> food for my family. <div class="vi-ex vn">→ Tôi chuẩn bị thức ăn cho gia đình.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/1.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/2.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 2 book -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/2.jpg" alt="book" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#66bb6a,#b2ff59);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>📅</div>'">
+    <div class="vocab-img-num">part4/2.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">2</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">book</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /bʊk/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">đặt chỗ / đặt trước</span></div>
+    <div class="vocab-example">I <strong>book</strong> a table at the restaurant. <div class="vi-ex vn">→ Tôi đặt bàn tại nhà hàng.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/3.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/4.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 3 arrange -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/3.jpg" alt="arrange" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#42a5f5,#80d8ff);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🌸</div>'">
+    <div class="vocab-img-num">part4/3.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">3</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">arrange</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /əˈreɪndʒ/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">sắp xếp / bố trí</span></div>
+    <div class="vocab-example">I <strong>arrange</strong> the flowers on the table. <div class="vi-ex vn">→ Tôi cắm hoa trên bàn.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/5.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/6.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 4 decorate -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/4.jpg" alt="decorate" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ab47bc,#ea80fc);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🎈</div>'">
+    <div class="vocab-img-num">part4/4.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">4</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">decorate</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /ˈdekəreɪt/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">trang trí</span></div>
+    <div class="vocab-example">We <strong>decorate</strong> the room with balloons. <div class="vi-ex vn">→ Chúng tôi trang trí phòng bằng bóng bay.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/7.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/8.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 5 cook -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/5.jpg" alt="cook" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ff6b35,#ffcc80);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🍳</div>'">
+    <div class="vocab-img-num">part4/5.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">5</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">cook</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /kʊk/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">nấu ăn</span></div>
+    <div class="vocab-example">My mom <strong>cooks</strong> rice every day. <div class="vi-ex vn">→ Mẹ tôi nấu cơm mỗi ngày.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/9.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/10.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 6 bake -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/6.jpg" alt="bake" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ffa726,#fff176);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🎂</div>'">
+    <div class="vocab-img-num">part4/6.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">6</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">bake</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /beɪk/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">nướng (bánh)</span></div>
+    <div class="vocab-example">I <strong>bake</strong> a cake for my grandma. <div class="vi-ex vn">→ Tôi nướng bánh cho bà ngoại.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/11.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/12.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 7 buy -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/7.jpg" alt="buy" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#26c6da,#80deea);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🛍️</div>'">
+    <div class="vocab-img-num">part4/7.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">7</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">buy</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /baɪ/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">mua</span></div>
+    <div class="vocab-example">I <strong>buy</strong> a gift for my friend. <div class="vi-ex vn">→ Tôi mua quà cho bạn tôi.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/13.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/14.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 8 write -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/8.jpg" alt="write" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#78909c,#cfd8dc);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>✉️</div>'">
+    <div class="vocab-img-num">part4/8.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">8</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">write</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /raɪt/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">viết</span></div>
+    <div class="vocab-example">She <strong>writes</strong> a card for her teacher. <div class="vi-ex vn">→ Cô ấy viết thiệp cho thầy giáo.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/15.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/16.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 9 plan -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/9.jpg" alt="plan" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#5c6bc0,#9fa8da);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>📋</div>'">
+    <div class="vocab-img-num">part4/9.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">9</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">plan</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /plæn/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">lên kế hoạch</span></div>
+    <div class="vocab-example">We <strong>plan</strong> a trip to the beach. <div class="vi-ex vn">→ Chúng tôi lên kế hoạch đi biển.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/17.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/18.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 10 invite -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/10.jpg" alt="invite" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ec407a,#f48fb1);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🤝</div>'">
+    <div class="vocab-img-num">part4/10.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">10</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">invite</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /ɪnˈvaɪt/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">mời</span></div>
+    <div class="vocab-example">I <strong>invite</strong> my friends to my party. <div class="vi-ex vn">→ Tôi mời bạn bè đến dự tiệc.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/19.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/2.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 11 celebrate -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/11.jpg" alt="celebrate" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ff6b35,#ab47bc);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🎉</div>'">
+    <div class="vocab-img-num">part4/11.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">11</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">celebrate</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /ˈseləbreɪt/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">tổ chức / kỷ niệm</span></div>
+    <div class="vocab-example">We <strong>celebrate</strong> her birthday together. <div class="vi-ex vn">→ Chúng tôi cùng tổ chức sinh nhật cho cô ấy.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/21.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/22.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 12 make -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/12.jpg" alt="make" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#4caf50,#c8e6c9);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🙌</div>'">
+    <div class="vocab-img-num">part4/12.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">12</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">make</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /meɪk/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">làm / tạo ra</span></div>
+    <div class="vocab-example">I <strong>make</strong> a birthday card for grandma. <div class="vi-ex vn">→ Tôi làm thiệp sinh nhật cho bà ngoại.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/23.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/24.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 13 hire -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/13.jpg" alt="hire" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ffa726,#fff9c4);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🎺</div>'">
+    <div class="vocab-img-num">part4/13.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">13</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">hire</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /haɪər/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">thuê (người / dịch vụ)</span></div>
+    <div class="vocab-example">We <strong>hire</strong> a singer for the party. <div class="vi-ex vn">→ Chúng tôi thuê ca sĩ cho buổi tiệc.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/25.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/26.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 14 record -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/14.jpg" alt="record" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#ef5350,#ffcdd2);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🎥</div>'">
+    <div class="vocab-img-num">part4/14.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">14</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">record</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /rɪˈkɔːrd/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">quay / ghi âm</span></div>
+    <div class="vocab-example">I <strong>record</strong> a video for my family. <div class="vi-ex vn">→ Tôi quay video cho gia đình xem.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/27.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/28.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 15 take (sb somewhere) -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/15.jpg" alt="take" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#26a69a,#b2dfdb);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🚗</div>'">
+    <div class="vocab-img-num">part4/15.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">15</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">take</div>
+        <span class="vocab-type vt-verb">Động từ · verb</span>
+        <div class="vocab-ipa">🔤 /teɪk/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">đưa / dẫn (ai đó đi đâu)</span></div>
+    <div class="vocab-example">I <strong>take</strong> grandma to the park. <div class="vi-ex vn">→ Tôi đưa bà ngoại ra công viên.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/29.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/30.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+<!-- 16 set up -->
+<div class="vocab-card">
+  <div class="vocab-img-wrap">
+    <img src="part4/16.jpg" alt="set up" onerror="this.parentElement.innerHTML='<div style=\'width:100%;height:148px;background:linear-gradient(135deg,#8d6e63,#d7ccc8);display:flex;align-items:center;justify-content:center;font-size:3.5rem;\'>🔧</div>'">
+    <div class="vocab-img-num">part4/16.jpg</div>
+  </div>
+  <div class="vocab-body">
+    <div class="vocab-top">
+      <div class="vocab-num-badge">16</div>
+      <div class="vocab-word-block">
+        <div class="vocab-word">set up</div>
+        <span class="vocab-type vt-phrase">Cụm động từ · phrasal verb</span>
+        <div class="vocab-ipa">🔤 /set ʌp/</div>
+      </div>
+    </div>
+    <div class="vocab-meaning">🇻🇳 <span class="vi-meaning">lắp đặt / chuẩn bị sẵn</span></div>
+    <div class="vocab-example">He <strong>sets up</strong> the chairs for the party. <div class="vi-ex vn">→ Anh ấy sắp xếp ghế cho buổi tiệc.</div></div>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/31.wav',this)"><span class="abicon">🔊</span> Nghe từ</button>
+    <button class="vocab-audio-btn" onclick="playAudio('part4/32.wav',this)"><span class="abicon">🔊</span> Nghe câu ví dụ</button>
+  </div>
+</div>
+
+</div><!-- /vocab-grid -->
+
+<div class="notice" style="margin-top:22px;text-align:center;max-width:720px;margin-left:auto;margin-right:auto;">
+  📁 Tạo thư mục <b>part4/</b> cùng cấp với file HTML · Đặt ảnh <b>part4/1.jpg → part4/16.jpg</b> và audio <b>part4/1.wav → part4/16.wav</b> vào đó.
+</div>
+</div><!-- /vocab-section-wrap -->
+
+<footer>✨ Present Progressive for Future Plans · Thực hành tiếng Anh cùng gia đình ✨</footer>
+
+<script>
+// LANG TOGGLE
+function setLang(lang) {
+  document.body.className = 'lang-' + lang;
+  document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+  document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+}
+
+// AUDIO PLAYER
+let currentAudio = null;
+let currentBtn  = null;
+
+function playAudio(file, btn) {
+  if (currentAudio) {
+    currentAudio.pause();
+    currentAudio.currentTime = 0;
+    if (currentBtn) currentBtn.classList.remove('playing');
+  }
+  if (currentBtn === btn) { currentAudio = null; currentBtn = null; return; }
+
+  const audio = new Audio(file);
+  currentAudio = audio;
+  currentBtn   = btn;
+
+  audio.play().then(() => {
+    btn.classList.add('playing');
+  }).catch(() => {
+    btn.classList.remove('playing');
+    const orig = btn.innerHTML;
+    btn.innerHTML = '⚠️ Chưa có file';
+    btn.style.opacity = '0.55';
+    setTimeout(() => { btn.innerHTML = orig; btn.style.opacity = ''; }, 2200);
+    currentAudio = null; currentBtn = null;
+  });
+
+  audio.onended = () => { btn.classList.remove('playing'); currentAudio = null; currentBtn = null; };
+}
+</script>
+</body>
+</html>
